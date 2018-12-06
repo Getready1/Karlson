@@ -21,7 +21,6 @@ namespace Karlson.Web
 		public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
 			WebHost.CreateDefaultBuilder(args)
 				.UseContentRoot(Directory.GetCurrentDirectory())
-				.ConfigureServices(s => s.AddAutofac())
 				.ConfigureAppConfiguration((hostingContext, config) =>
 				{
 					var env = hostingContext.HostingEnvironment;

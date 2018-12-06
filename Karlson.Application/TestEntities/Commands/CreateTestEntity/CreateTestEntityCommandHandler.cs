@@ -26,7 +26,7 @@ namespace Karlson.Application.TestEntities.Commands.CreateTestEntity
 
 			ctx.TestEntity.Add(entity);
 
-			await ctx.SaveChangesAsync();
+			var result = await ctx.SaveChangesAsync();
 
 			return Unit.Value;
 		}

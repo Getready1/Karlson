@@ -1,19 +1,15 @@
-using Autofac;
-using Autofac.Extensions.DependencyInjection;
 using Karlson.DataAccess.DbCtx;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.SpaServices.ReactDevelopmentServer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using MediatR;
-using MediatR.Pipeline;
 using Karlson.Application;
 using System.Reflection;
+using Karlson.DependencyInjection;
 
 namespace Karlson.Web
 {
@@ -23,8 +19,6 @@ namespace Karlson.Web
 		{
 			Configuration = configuration;
 		}
-
-		public IContainer AppContainer { get; private set; }
 
 		public IConfiguration Configuration { get; }
 
@@ -38,7 +32,9 @@ namespace Karlson.Web
 			services.AddDbContext<KarlsonDbCtx>(options =>
 				options.UseSqlServer(Configuration.GetConnectionString("KarlsonDb")));
 
-			services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+			services.AddMvc()
+				.AddControllersAsServices()
+				.SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
 			// In production, the React files will be served from this directory
 			services.AddSpaStaticFiles(configuration =>
@@ -46,13 +42,7 @@ namespace Karlson.Web
 				configuration.RootPath = "ClientApp/build";
 			});
 
-			var builder = new ContainerBuilder();
-
-			builder.Populate(services);
-			//builder.RegisterType<Type>().As<IType>();
-			AppContainer = builder.Build();
-
-			return new AutofacServiceProvider(AppContainer);
+			return AutofacService.GetServiceProvider(services);
 		}
 
 		// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

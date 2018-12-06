@@ -9,7 +9,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Karlson.DataAccess", "Karls
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Karlson.Domain", "Karlson.Domain\Karlson.Domain.csproj", "{B813EA7D-C641-4435-BFCF-B904FAD5FE45}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Karlson.Application", "Karlson.Application\Karlson.Application.csproj", "{B3765964-6226-4F6A-BCED-830DF552101C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Karlson.Application", "Karlson.Application\Karlson.Application.csproj", "{B3765964-6226-4F6A-BCED-830DF552101C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Karlson.Service", "Karlson.Service\Karlson.Service.csproj", "{198D1FC8-0ED4-4667-BEBD-ED7F99A308ED}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Karlson.DependencyInjection", "Karlson.DependencyInjection\Karlson.DependencyInjection.csproj", "{CEBACBE8-8985-429A-9E20-35A5B9E20BD0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +37,14 @@ Global
 		{B3765964-6226-4F6A-BCED-830DF552101C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B3765964-6226-4F6A-BCED-830DF552101C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B3765964-6226-4F6A-BCED-830DF552101C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{198D1FC8-0ED4-4667-BEBD-ED7F99A308ED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{198D1FC8-0ED4-4667-BEBD-ED7F99A308ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{198D1FC8-0ED4-4667-BEBD-ED7F99A308ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{198D1FC8-0ED4-4667-BEBD-ED7F99A308ED}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CEBACBE8-8985-429A-9E20-35A5B9E20BD0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CEBACBE8-8985-429A-9E20-35A5B9E20BD0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CEBACBE8-8985-429A-9E20-35A5B9E20BD0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CEBACBE8-8985-429A-9E20-35A5B9E20BD0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

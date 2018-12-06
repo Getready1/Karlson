@@ -1,25 +1,33 @@
 ﻿using Karlson.Application.TestEntities.Commands.CreateTestEntity;
-using Karlson.Application.TestEntities.Queries.GetEntityDetails;
+using Karlson.Core.Services.ServicesInterfaces.TestEntity;
 using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace Karlson.Web.Controllers
 {
-	public class EntityController : BaseController
+	[ApiController]
+	[Route("api/entities")]
+	public class EntityController : Controller
 	{
+		private ITestEntityReadService entityReadService;
+		private ITestEntityWriteService entityWriteServices;
+
+		public EntityController(ITestEntityReadService entityReadService, ITestEntityWriteService entityWriteServices)
+		{
+			this.entityReadService = entityReadService;
+			this.entityWriteServices = entityWriteServices;
+		}
+
 		[HttpGet("{id:int}")]
 		public async Task<IActionResult> Get(int id)
 		{
-			return Ok(await Mediator.Send(new GetEntityDetailQuery { TestEntityId = id }));
+			return Ok(await entityReadService.GetEntityDetail(id));
 		}
 
 		[HttpPost]
 		public async Task<IActionResult> Create([FromBody]CreateTestEntityCommand command)
 		{
-			return Ok(await Mediator.Send(command));
+			return Ok(await entityWriteServices.CreateTestEntity(command));
 		}
 	}
 }
