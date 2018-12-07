@@ -11,9 +11,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Karlson.Domain", "Karlson.D
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Karlson.Application", "Karlson.Application\Karlson.Application.csproj", "{B3765964-6226-4F6A-BCED-830DF552101C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Karlson.Service", "Karlson.Service\Karlson.Service.csproj", "{198D1FC8-0ED4-4667-BEBD-ED7F99A308ED}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Karlson.Service", "Karlson.Service\Karlson.Service.csproj", "{198D1FC8-0ED4-4667-BEBD-ED7F99A308ED}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Karlson.DependencyInjection", "Karlson.DependencyInjection\Karlson.DependencyInjection.csproj", "{CEBACBE8-8985-429A-9E20-35A5B9E20BD0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Karlson.DependencyInjection", "Karlson.DependencyInjection\Karlson.DependencyInjection.csproj", "{CEBACBE8-8985-429A-9E20-35A5B9E20BD0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

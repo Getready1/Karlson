@@ -16,7 +16,8 @@ namespace Karlson.DependencyInjection
 			builder.RegisterType<Mediator>().As<IMediator>();
 
 			builder.RegisterModule(new ServicesModule());
-			
+			builder.RegisterModule(new RepositoriesModule());
+
 			return new AutofacServiceProvider(builder.Build());
 		}
 	}

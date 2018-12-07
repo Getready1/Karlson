@@ -1,5 +1,5 @@
 ﻿using Autofac;
-using Karlson.Core.Services.ServicesInterfaces.TestEntity;
+using Karlson.Application.Services.TestEntity;
 using Karlson.Service.Services.TestEntity;
 
 namespace Karlson.DependencyInjection.Modules

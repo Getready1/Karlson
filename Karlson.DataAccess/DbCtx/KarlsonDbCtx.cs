@@ -1,10 +1,6 @@
-﻿using JetBrains.Annotations;
-using Karlson.DataAccess.Extensions;
+﻿using Karlson.DataAccess.Extensions;
 using Karlson.Domain;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Karlson.DataAccess.DbCtx
 {

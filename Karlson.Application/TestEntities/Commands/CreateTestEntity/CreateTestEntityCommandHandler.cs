@@ -1,8 +1,5 @@
-﻿using Karlson.DataAccess.DbCtx;
+﻿using Karlson.Application.Repositories.TestEntity;
 using MediatR;
-using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -10,11 +7,11 @@ namespace Karlson.Application.TestEntities.Commands.CreateTestEntity
 {
 	public class CreateTestEntityCommandHandler : IRequestHandler<CreateTestEntityCommand, Unit>
 	{
-		private readonly KarlsonDbCtx ctx;
+		private readonly ITestEntityRepository teRepository;
 
-		public CreateTestEntityCommandHandler(KarlsonDbCtx ctx)
+		public CreateTestEntityCommandHandler(ITestEntityRepository teRepository)
 		{
-			this.ctx = ctx;
+			this.teRepository = teRepository;
 		}
 
 		public async Task<Unit> Handle(CreateTestEntityCommand request, CancellationToken cancellationToken)
@@ -24,9 +21,7 @@ namespace Karlson.Application.TestEntities.Commands.CreateTestEntity
 				Name = request.Name
 			};
 
-			ctx.TestEntity.Add(entity);
-
-			var result = await ctx.SaveChangesAsync();
+			await teRepository.AddAsync(entity);
 
 			return Unit.Value;
 		}

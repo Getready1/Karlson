@@ -33,7 +33,6 @@ namespace Karlson.Web
 				options.UseSqlServer(Configuration.GetConnectionString("KarlsonDb")));
 
 			services.AddMvc()
-				.AddControllersAsServices()
 				.SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
 			// In production, the React files will be served from this directory
@@ -75,15 +74,15 @@ namespace Karlson.Web
 					template: "{controller}/{action=Index}/{id?}");
 			});
 
-			app.UseSpa(spa =>
-			{
-				spa.Options.SourcePath = "ClientApp";
+			//app.UseSpa(spa =>
+			//{
+			//	spa.Options.SourcePath = "ClientApp";
 
-				if (env.IsDevelopment())
-				{
-					spa.UseReactDevelopmentServer(npmScript: "start");
-				}
-			});
+			//	if (env.IsDevelopment())
+			//	{
+			//		spa.UseReactDevelopmentServer(npmScript: "start");
+			//	}
+			//});
 		}
 	}
 }

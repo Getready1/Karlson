@@ -1,10 +1,7 @@
 ﻿using Karlson.Application.Exceptions;
-using Karlson.DataAccess.DbCtx;
+using Karlson.Application.Repositories.TestEntity;
 using Karlson.Domain;
 using MediatR;
-using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -12,16 +9,16 @@ namespace Karlson.Application.TestEntities.Queries.GetEntityDetails
 {
 	public class GetEntityQueryHandler : IRequestHandler<GetEntityDetailQuery, GetEntityModel>
 	{
-		private KarlsonDbCtx ctx;
+		private ITestEntityRepository teRepository;
 
-		public GetEntityQueryHandler(KarlsonDbCtx ctx)
+		public GetEntityQueryHandler(ITestEntityRepository teRepository)
 		{
-			this.ctx = ctx;
+			this.teRepository = teRepository;
 		}
 
 		public async Task<GetEntityModel> Handle(GetEntityDetailQuery request, CancellationToken cancellationToken)
 		{
-			var entity = await ctx.TestEntity.FindAsync(request.TestEntityId);
+			var entity = await teRepository.GetByIdAsync(request.TestEntityId);
 
 			if(entity == null)
 			{

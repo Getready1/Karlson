@@ -11,6 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Karlson.DataAccess\Karlson.DataAccess.csproj" />
     <ProjectReference Include="..\Karlson.Service\Karlson.Service.csproj" />
   </ItemGroup>
 

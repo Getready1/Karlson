@@ -1,5 +1,5 @@
-﻿using Karlson.Application.TestEntities.Queries.GetEntityDetails;
-using Karlson.Core.Services.ServicesInterfaces.TestEntity;
+﻿using Karlson.Application.Services.TestEntity;
+using Karlson.Application.TestEntities.Queries.GetEntityDetails;
 using System.Threading.Tasks;
 
 namespace Karlson.Service.Services.TestEntity

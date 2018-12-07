@@ -1,10 +1,7 @@
 ﻿using Karlson.Application.TestEntities.Queries.GetEntityDetails;
-using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Threading.Tasks;
 
-namespace Karlson.Core.Services.ServicesInterfaces.TestEntity
+namespace Karlson.Application.Services.TestEntity
 {
 	public interface ITestEntityReadService
 	{

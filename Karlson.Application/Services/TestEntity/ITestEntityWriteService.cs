@@ -2,7 +2,7 @@
 using MediatR;
 using System.Threading.Tasks;
 
-namespace Karlson.Core.Services.ServicesInterfaces.TestEntity
+namespace Karlson.Application.Services.TestEntity
 {
 	public interface ITestEntityWriteService
 	{
