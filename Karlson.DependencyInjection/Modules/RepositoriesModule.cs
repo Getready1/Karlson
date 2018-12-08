@@ -1,9 +1,6 @@
 ﻿using Autofac;
-using Karlson.Application.Repositories.TestEntity;
 using Karlson.DataAccess.Repositories;
-using System;
-using System.Collections.Generic;
-using System.Text;
+using Karlson.Domain.RepositoryInterfaces.TestEntities;
 
 namespace Karlson.DependencyInjection.Modules
 {

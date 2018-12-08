@@ -1,4 +1,4 @@
-﻿using Karlson.Application.Services.TestEntity;
+﻿using Karlson.Application.ServiceInterfaces.TestEntity;
 using Karlson.Application.TestEntities.Commands.CreateTestEntity;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;

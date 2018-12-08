@@ -1,4 +1,4 @@
-﻿using Karlson.Application.Services.TestEntity;
+﻿using Karlson.Application.ServiceInterfaces.TestEntity;
 using Karlson.Application.TestEntities.Commands.CreateTestEntity;
 using MediatR;
 using System.Threading.Tasks;

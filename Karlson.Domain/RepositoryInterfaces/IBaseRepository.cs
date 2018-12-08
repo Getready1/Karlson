@@ -2,7 +2,8 @@
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Karlson.Application.Repositories
+namespace Karlson.Domain.RepositoryInterfaces
+
 {
 	public interface IBaseRepository<T>
 	{

@@ -14,7 +14,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Karlson.Application\Karlson.Application.csproj" />
     <ProjectReference Include="..\Karlson.Domain\Karlson.Domain.csproj" />
   </ItemGroup>
 

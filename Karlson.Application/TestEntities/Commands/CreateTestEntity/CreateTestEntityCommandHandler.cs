@@ -1,4 +1,4 @@
-﻿using Karlson.Application.Repositories.TestEntity;
+﻿using Karlson.Domain.RepositoryInterfaces.TestEntities;
 using MediatR;
 using System.Threading;
 using System.Threading.Tasks;

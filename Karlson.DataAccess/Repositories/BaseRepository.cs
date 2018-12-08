@@ -1,7 +1,6 @@
-﻿using Karlson.Application.Repositories;
-using Karlson.DataAccess.DbCtx;
+﻿using Karlson.DataAccess.DbCtx;
+using Karlson.Domain.RepositoryInterfaces;
 using Microsoft.EntityFrameworkCore;
-using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 

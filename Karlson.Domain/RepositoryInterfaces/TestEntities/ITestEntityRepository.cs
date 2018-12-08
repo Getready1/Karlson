@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Karlson.Application.Repositories.TestEntity
+namespace Karlson.Domain.RepositoryInterfaces.TestEntities
 {
 	public interface ITestEntityRepository : IBaseRepository<Domain.TestEntity>
 	{

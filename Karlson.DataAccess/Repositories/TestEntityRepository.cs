@@ -1,6 +1,6 @@
-﻿using Karlson.Application.Repositories.TestEntity;
-using Karlson.DataAccess.DbCtx;
+﻿using Karlson.DataAccess.DbCtx;
 using Karlson.Domain;
+using Karlson.Domain.RepositoryInterfaces.TestEntities;
 
 namespace Karlson.DataAccess.Repositories
 {
