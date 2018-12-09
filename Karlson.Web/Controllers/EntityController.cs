@@ -1,5 +1,6 @@
 ﻿using Karlson.Application.ServiceInterfaces.TestEntity;
 using Karlson.Application.TestEntities.Commands.CreateTestEntity;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 
@@ -18,6 +19,7 @@ namespace Karlson.Web.Controllers
 			this.entityWriteServices = entityWriteServices;
 		}
 
+		[Authorize]
 		[HttpGet("{id:int}")]
 		public async Task<IActionResult> Get(int id)
 		{
@@ -25,7 +27,7 @@ namespace Karlson.Web.Controllers
 		}
 
 		[HttpPost]
-		public async Task<IActionResult> Create([FromBody]CreateTestEntityCommand command)
+		public async Task<IActionResult> Create([FromBody] CreateTestEntityCommand command)
 		{
 			return Ok(await entityWriteServices.CreateTestEntity(command));
 		}

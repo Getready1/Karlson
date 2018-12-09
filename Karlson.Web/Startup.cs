@@ -10,6 +10,11 @@ using MediatR;
 using Karlson.Application;
 using System.Reflection;
 using Karlson.DependencyInjection;
+using Karlson.Domain;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 
 namespace Karlson.Web
 {
@@ -31,6 +36,35 @@ namespace Karlson.Web
 
 			services.AddDbContext<KarlsonDbCtx>(options =>
 				options.UseSqlServer(Configuration.GetConnectionString("KarlsonDb")));
+
+			services.AddIdentity<ApplicationUser, IdentityRole>()
+				.AddUserManager<UserManager<ApplicationUser>>()
+				.AddSignInManager<SignInManager<ApplicationUser>>()
+				.AddEntityFrameworkStores<KarlsonDbCtx>();
+
+			var x = Configuration.GetSection("Jwt")["Key"];
+			var signingKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["Jwt:Key"]));
+			services
+				.AddAuthentication(options =>
+				{
+					options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+					options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+				})
+				.AddJwtBearer(config =>
+				{
+					config.RequireHttpsMetadata = false;
+					config.SaveToken = true;
+					config.TokenValidationParameters = new TokenValidationParameters
+					{
+						IssuerSigningKey = signingKey,
+						ValidateAudience = true,
+						ValidAudience = Configuration["Jwt:Audience"],
+						ValidateIssuer = true,
+						ValidIssuer = Configuration["Jwt:Issuer"],
+						ValidateLifetime = true,
+						ValidateIssuerSigningKey = true
+					};
+				});
 
 			services.AddMvc()
 				.SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
@@ -66,6 +100,8 @@ namespace Karlson.Web
 				.AllowAnyMethod()
 				.AllowAnyHeader()
 				.AllowCredentials());
+
+			app.UseAuthentication();
 
 			app.UseMvc(routes =>
 			{

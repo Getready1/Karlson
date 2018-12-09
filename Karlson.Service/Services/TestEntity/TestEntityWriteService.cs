@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace Karlson.Service.Services.TestEntity
 {
-	public class TestEntityWriteService : BaseService, ITestEntityWriteService
+	public class TestEntityWriteService : ServiceBase, ITestEntityWriteService
 	{
 		public async Task<Unit> CreateTestEntity(CreateTestEntityCommand command)
 			=> await Mediatr.Send(command);

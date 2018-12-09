@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 
 namespace Karlson.Service.Services.TestEntity
 {
-	public class TestEntityReadService : BaseService, ITestEntityReadService
+	public class TestEntityReadService : ServiceBase, ITestEntityReadService
 	{
 		public async Task<GetEntityModel> GetEntityDetail(int id)
 			=> await Mediatr.Send(new GetEntityDetailQuery { TestEntityId = id });

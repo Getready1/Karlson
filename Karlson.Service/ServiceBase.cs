@@ -2,7 +2,7 @@
 
 namespace Karlson.Service
 {
-	public abstract class BaseService
+	public abstract class ServiceBase
 	{
 		public IMediator Mediatr { get; set; }
 	}

@@ -4,6 +4,7 @@ using Microsoft.Extensions.DependencyInjection;
 using System;
 using MediatR;
 using Karlson.DependencyInjection.Modules;
+using Karlson.DataAccess.DbCtx;
 
 namespace Karlson.DependencyInjection
 {
