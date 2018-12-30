@@ -1,0 +1,35 @@
+.create-survey-page {
+  background: linear-gradient(#1e1e2f, #1e1e24);
+  padding: 30px;
+
+  .survey-name {
+    text-align: center;
+    margin-bottom: 8px;
+  }
+}
+
+form {
+  .name-control {
+    margin-bottom: 35px;
+  }
+
+  label {
+    color: white;
+  }
+
+  option {
+    color: black;
+  }
+
+  hr {
+    width: 100%;
+  }
+
+  .answer-options {
+    padding: 15px;
+  }
+
+  .complete-button {
+    margin-top: 15px;
+  }
+}

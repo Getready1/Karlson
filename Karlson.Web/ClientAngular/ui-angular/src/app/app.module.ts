@@ -13,9 +13,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HomeComponent } from './containers/home/home.component';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { CreateSurveyComponent } from './containers/create-survey/create-survey.component';
 
 @NgModule({
-  declarations: [AppComponent, LoginComponent, RegisterComponent, HomeComponent, HeaderComponent, FooterComponent],
+  declarations: [AppComponent, LoginComponent, RegisterComponent, HomeComponent, HeaderComponent, FooterComponent, CreateSurveyComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,

@@ -1,0 +1,87 @@
+<div class="create-survey-page">
+  <h2 class="survey-name">{{ surveyName }}</h2>
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div class="form-group name-control">
+      <label for="name">Survey name</label>
+      <input
+        type="text"
+        name="name"
+        class="form-control"
+        placeholder="Enter survey name"
+        formControlName="name"
+      />
+    </div>
+    <div formArrayName="questions">
+      <div *ngFor="let question of questions.controls; let i = index">
+        <form [formGroupName]="i">
+          <div class="form-group">
+            <label for="name">Question #{{ i + 1 }}</label>
+            <input
+              type="text"
+              name="name"
+              class="form-control"
+              placeholder="Enter question"
+              formControlName="text"
+            />
+          </div>
+          <div class="form-group">
+            <label for="exampleFormControlSelect1">Select answer type</label>
+            <select #type class="form-control" formControlName="type">
+              <option value="1">Free text</option>
+              <option value="2">Radio button</option>
+              <option value="3">Dropdown list</option>
+            </select>
+          </div>
+          <div
+            formArrayName="options"
+            class="form-group answer-options"
+            *ngIf="type.value === '2' || type.value === '3'"
+          >
+            <div
+              *ngFor="
+                let option of question.controls.options.controls;
+                let optionIndex = index
+              "
+            >
+              <div class="form-group">
+                <input
+                  type="text"
+                  name="option"
+                  class="form-control"
+                  [placeholder]="'Option ' + (optionIndex + 1)"
+                  [formControlName]="optionIndex"
+                />
+              </div>
+            </div>
+            <button
+              type="button"
+              class="btn btn-primary btn-fab btn-icon btn-round"
+              data-toggle="tooltip"
+              data-placement="top"
+              title="Add option"
+              (click)="addAnswerOption(question)"
+            >
+              <i class="tim-icons icon-simple-add"></i>
+            </button>
+          </div>
+        </form>
+        <hr />
+      </div>
+    </div>
+    <button
+      type="button"
+      class="btn btn-primary btn-fab btn-icon btn-round"
+      data-toggle="tooltip"
+      data-placement="top"
+      title="Add question"
+      (click)="addQuestion()"
+    >
+      <i class="tim-icons icon-simple-add"></i>
+    </button>
+    <div class="complete-button">
+      <button type="submit" class="btn btn-primary">Complete</button>
+    </div>
+  </form>
+</div>
+
+{{ form.value | json }}
